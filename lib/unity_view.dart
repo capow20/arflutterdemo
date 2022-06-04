@@ -37,6 +37,7 @@ class _UnityViewState extends State<UnityView> {
   }
 
   void _onUnityMessage(message) {
+    // ignore: avoid_print
     print("Message Received by Flutter: ${message.toString()}");
 
     switch (message) {
