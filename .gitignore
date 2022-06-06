@@ -33,8 +33,8 @@ migrate_working_dir/
 /build/
 
 # Unity
-**/ios/UnityLibrary/
-**/android/unityLibrary
+/ios/UnityLibrary/
+/android/unityLibrary
 
 # Web related
 lib/generated_plugin_registrant.dart
