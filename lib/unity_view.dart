@@ -11,26 +11,29 @@ class UnityView extends StatefulWidget {
 }
 
 class _UnityViewState extends State<UnityView> {
-  String title = 'Unity View';
   UnityWidgetController? unityController;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.red,
-          title: const Text("Unity View"),
-        ),
-        body: UnityWidget(
-          onUnityCreated: _onUnityCreated,
-          onUnityMessage: _onUnityMessage,
-          runImmediately: true,
-          fullscreen: false,
-        ));
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        title: const Text("Unity View"),
+      ),
+      body: UnityWidget(
+        onUnityCreated: _onUnityCreated,
+        onUnityMessage: _onUnityMessage,
+        runImmediately: true,
+        fullscreen: false,
+      ),
+    );
   }
 
   void _onUnityCreated(controller) {
     unityController = controller;
+    //.pause() & .resume() are to avoid issue with white screen
+    //on unity initialization until version is pushed by package creator that solves it
+    //(the creator of the package is aware of this issue and is working on it)
     unityController?.pause();
     sleep(const Duration(milliseconds: 100));
     unityController?.resume();
